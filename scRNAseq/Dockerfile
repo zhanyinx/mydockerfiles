@@ -55,3 +55,5 @@ RUN Rscript -e "devtools::install_github(c('hemberg-lab/scRNA.seq.funcs', 'Vivia
 RUN sudo apt-get install -y libproj-dev
 RUN sudo apt remove -y libmariadb-dev 
 RUN sudo apt-get install -y libgdal-dev
+
+RUN Rscript -e "devtools::install_github('aet21/SCENT')"
