@@ -43,7 +43,7 @@ apt-get update
 
 RUN Rscript -e "install.packages(c('BiocManager', 'devtools', 'git2r', 'XML', 'RCurl', 'stringr', 'knitr', 'bookdown', 'pheatmap', 'statmod', 'mvoutlier', 'mclust', 'dplyr', 'penalized', 'cluster', 'Seurat', 'KernSmooth', 'mgcv', 'ROCR', 'googleVis', 'tidyverse', 'ggplot2', 'ggthemes', 'ggbeeswarm', 'corrplot', 'matrixStats', 'lle', 'Rtsne', 'cowplot', 'crayon', 'ggforce', 'ggraph', 'clustree', 'RColorBrewer', 'circlize', 'Rmagic', 'phateR', 'png', 'RMySQL', 'energy', 'doParallel', 'Formula', 'rARPACK', 'seqinr', 'scales', 'data.table', 'ggrepel', 'caret', 'psych', 'colorRamps', 'DT', 'RColorBrewer', 'patchwork', 'reshape2'))"
 
-RUN Rscript -e "BiocManager::install(c('pcaMethods', 'limma', 'SingleCellExperiment', 'Rhdf5lib', 'beachmat', 'scater', 'scran', 'RUVSeq', 'sva', 'SC3', 'TSCAN', 'monocle', 'destiny', 'DESeq2', 'edgeR', 'MAST', 'scfind', 'scmap', 'MultiAssayExperiment', 'SummarizedExperiment', 'annotate', 'biomaRt', 'genefilter', 'geneplotter', 'rtracklayer', 'GenomicFeatures', 'EDASeq', 'ComplexHeatmap', 'scde', 'GSVA', 'AUCell', 'clusterProfiler', 'DOSE', 'GSEABase', 'PGSEA', 'pathview', 'org.Hs.eg.db', 'BiocParallel', 'fgsea', 'clusterExperiment', 'Biobase', 'iCOBRA', 'slingshot', 'CEMiTool'))"
+RUN Rscript -e "BiocManager::install(c('pcaMethods', 'limma', 'SingleCellExperiment', 'Rhdf5lib', 'beachmat', 'scater', 'scran', 'RUVSeq', 'sva', 'SC3', 'TSCAN', 'monocle', 'destiny', 'DESeq2', 'edgeR', 'MAST', 'scfind', 'scmap', 'MultiAssayExperiment', 'SummarizedExperiment', 'annotate', 'biomaRt', 'genefilter', 'geneplotter', 'rtracklayer', 'GenomicFeatures', 'EDASeq', 'ComplexHeatmap', 'scde', 'GSVA', 'AUCell', 'clusterProfiler', 'DOSE', 'GSEABase', 'PGSEA', 'pathview', 'org.Hs.eg.db', 'BiocParallel', 'fgsea', 'clusterExperiment', 'Biobase', 'iCOBRA', 'slingshot', 'CEMiTool', 'BSgenome.Dmelanogaster.UCSC.dm6'))"
 
 RUN Rscript -e "BiocManager::install(c('celldex', 'scran', 'zellkonverter', 'AnnotationDbi', 'DropletUtils', 'EnsDb.Mmusculus.v79', 'SingleR', 'SoupX', 'anndata', 'cerebroApp', 'org.Mm.eg.db', 'patchwork', 'scDblFinder'))"
 
@@ -57,3 +57,5 @@ RUN sudo apt remove -y libmariadb-dev
 RUN sudo apt-get install -y libgdal-dev
 
 RUN Rscript -e "devtools::install_github('aet21/SCENT')"
+RUN Rscript -e "install.packages('Signac')"
+
