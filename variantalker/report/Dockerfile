@@ -32,5 +32,5 @@ RUN apt update -y && apt -y upgrade && apt install -y --no-install-recommends \
 RUN Rscript -e "install.packages('rmarkdown')"
 RUN Rscript -e "install.packages('BiocManager')"
 RUN Rscript -e "BiocManager::install('maftools')"
-RUN Rscript -e "install.packages('devtools')"
-RUN Rscript -e "devtools::install_github('stephenturner/qqman')"
+RUN Rscript -e "install.packages('qqman')"
+RUN Rscript -e "install.packages('reshape2')"
