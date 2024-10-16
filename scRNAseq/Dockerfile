@@ -59,3 +59,4 @@ RUN sudo apt-get install -y libgdal-dev
 RUN Rscript -e "devtools::install_github('aet21/SCENT')"
 RUN Rscript -e "install.packages('Signac')"
 
+RUN sudo apt-get install -y libgit2-dev
