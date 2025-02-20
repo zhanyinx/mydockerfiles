@@ -1,0 +1,203 @@
+<!--
+
+    ShinyProxy
+
+    Copyright (C) 2016-2021 Open Analytics
+
+    ===========================================================================
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the Apache License as published by
+    The Apache Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    Apache License for more details.
+
+    You should have received a copy of the Apache License
+    along with this program.  If not, see <http://www.apache.org/licenses/>
+
+-->
+<!DOCTYPE html>
+<html
+>
+<head lang="en">
+    <title>IEO Bioinfo Shiny Apps</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" media="screen" href="/shiny/webjars/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" href="/shiny/css/default.css"/>
+    <script src="/shiny/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/shiny/webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/shiny/webjars/js-cookie/2.2.1/js.cookie.min.js"></script>
+    
+    <script src="/shiny/js/shiny.api.js"></script>
+    <script src="/shiny/js/shiny.common.js"></script>
+</head>
+<body>
+<!-- navigation bar -->
+<div id="navbar">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<img class="navbar-brand" src="https://upload.wikimedia.org/wikipedia/it/1/18/IEO_logo.png" />
+					<a class="navbar-brand" href="/shiny/">IEO Bioinfo Shiny Apps</a>
+				</div>
+				<div class="navbar-form navbar-right">
+					
+
+					
+
+					
+
+					
+					
+					
+				</div>
+				
+			</div>
+		</nav>
+		<div class="modal fade" id="reportIssueModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form id="issueForm">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Report Issue</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="customMessage"><span class="glyphicon glyphicon-chat"></span> Message to add to the report:</label>
+								<textarea class="form-control" id="customMessage" placeholder="Enter message" cols="40" rows="5" name="customMessage"></textarea>
+								<input type="hidden" name="currentLocation"></input>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-default btn-success">Submit</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script lang="JavaScript">
+			$(document).ready(function() {
+				$('input[name="currentLocation"]').val(window.location.href);
+
+				$("#issueForm").submit(function(event){
+					event.preventDefault();
+					var formValues= $(this).serialize();
+
+					$.post("/shiny/" + "issue", formValues, function(data){
+						if (data.status === "success") {
+							$('#customMessage').val('');
+							$('#reportIssueModal').modal('hide');
+							alert("Your issue has been reported");
+						} else {
+							alert("Something went wrong when reporting your issue");
+						}
+					}).fail(function() {
+						alert("Something went wrong when reporting your issue");
+					});
+				});
+			});
+		</script>
+
+	</div>
+
+<div id="new-version-banner" class="alert alert-info" role="alert" style="display:none;">
+    A new version of <span>ShinyProxy</span> is available
+    <button id="new-version-btn" class="btn btn-default btn-sm">Switch to new version!</button>
+</div>
+
+<!-- This is a fragment used to display a single app. -->
+<!-- Modify this in order to change how a single app looks. -->
+
+    
+
+<!--End of the template.-->
+
+<!-- Part that shows a list when none of the apps contain a logo -->
+<div id="applist">
+    
+    
+        <!-- Only show the "Other" header if there are other groups with apps -->
+        
+        <ul>
+            
+    
+        <li>
+            <a href="http://bioserver.ieo.it/shiny/app/CovidCT">CovidCT</a>
+            <br/>
+            <span>Covid Clinical Trials</span>
+        </li>
+        
+    
+
+    
+        <li>
+            <a href="http://bioserver.ieo.it/shiny/app/ptd_studio">PTD Studio</a>
+            <br/>
+            <span>PTD studio app</span>
+        </li>
+        
+    
+
+    
+        <li>
+            <a href="http://bioserver.ieo.it/shiny/app/tmbler">TMBLeR</a>
+            <br/>
+            <span>TMBLeR</span>
+        </li>
+        
+    
+
+    
+        <li>
+            <a href="http://bioserver.ieo.it/shiny/app/renovo">RENOVO</a>
+            <br/>
+            <span>RENOVO</span>
+        </li>
+        
+    
+
+    
+        <li>
+            <a href="http://bioserver.ieo.it/shiny/app/prometheusdb">Prometheus DB</a>
+            <br/>
+            <span>prometheusdb</span>
+        </li>
+        
+    
+
+    
+        <li>
+            <a href="http://bioserver.ieo.it/shiny/app/uniqueproteingroups">Unique Protein Groups</a>
+            <br/>
+            <span>uniqueproteingroups</span>
+        </li>
+        
+    
+
+    
+        <li>
+            <a href="http://bioserver.ieo.it/shiny/app/qproms">QProMS_App (beta)</a>
+            <br/>
+            <span>QProMS_App beta</span>
+        </li>
+        
+    
+
+        </ul>
+    
+</div>
+
+<!-- Part that shows a list when the apps contain a logo -->
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+Version:          1.7.20200521g
+Use Case:         Germline
+Source:           ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/funcotator/funcotator_dataSources.v1.7.20200521g.tar.gz
+Alternate Source: gs://broad-public-datasets/funcotator/funcotator_dataSources.v1.7.20200521.tar.gz
