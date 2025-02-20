@@ -16,6 +16,6 @@ RUN apt-get update && apt install -y procps g++ && apt-get clean && rm -rf /var/
 RUN apt-get update && apt install -y ssh rsync && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN pip install SigProfilerAssignment
-RUN mkdir /usr/local/lib/python3.9/site-packages/SigProfilerMatrixGenerator/references/vcf_files/GRCh38_bench/ /usr/local/lib/python3.9/site-packages/SigProfilerMatrixGenerator/references/vcf_files/GRCh37_bench/
+RUN mkdir -p /usr/local/lib/python3.9/site-packages/SigProfilerMatrixGenerator/references/vcf_files/GRCh38_bench/ /usr/local/lib/python3.9/site-packages/SigProfilerMatrixGenerator/references/vcf_files/GRCh37_bench/
 
 COPY ./install_genomes.py /
