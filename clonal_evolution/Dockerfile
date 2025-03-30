@@ -57,7 +57,7 @@ WORKDIR /
 
 RUN Rscript -e "install.packages(c('BiocManager', 'devtools', 'tidyverse', 'reshape2'))"
 
-RUN conda install pytables -y
+RUN conda install -c conda-forge pytables -y
 RUN Rscript -e "BiocManager::install(c('rhdf5','timescape'))"
 RUN Rscript -e "install.packages(c('getopt'))"
 
